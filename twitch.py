@@ -38,7 +38,7 @@ async def check_stream():
 async def send_live_alert():
     channel = client.get_channel(int(CHANNEL_ID))
     if channel:
-        await channel.send(f"🔴 **{STREAMER_NAME} is LIVE!**\nWatch here: https://twitch.tv/{STREAMER_NAME}")
+        await channel.send(f" @here 🔴 **{STREAMER_NAME} is LIVE!**\nWatch here: https://twitch.tv/{STREAMER_NAME}")
 
 @client.event
 async def on_message(message):
@@ -48,7 +48,7 @@ async def on_message(message):
 
     if message.content.lower() == "!check":
         if is_live:
-            await message.channel.send(f"✅ **{STREAMER_NAME} is LIVE!**\nWatch here: https://twitch.tv/{STREAMER_NAME}")
+            await message.channel.send(f"@here ✅ **{STREAMER_NAME} is LIVE!**\nWatch here: https://twitch.tv/{STREAMER_NAME}")
         else:
             await message.channel.send(f"❌ **{STREAMER_NAME} is NOT live right now.**")
 
